@@ -1,0 +1,7 @@
+<li class="list-group-item d-flex justify-content-between">
+    <h6>{{ task.name }}</h6>
+    <div>
+        <a href="#" (click)="updateStatus()" *ngIf="notCompleted()"><i class="bi bi-check-circle h3 text-success"></i></a>
+        <a href="#" (click)="onDeleteTask()"><i class="bi bi-trash h3 text-danger"></i></a>
+    </div>
+</li>

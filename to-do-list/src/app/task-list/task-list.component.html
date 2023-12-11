@@ -1,0 +1,39 @@
+<div class="bg-color">
+    <div class="container mt-5 mx-auto w-50">
+          <div class="card">
+            <div class="card-header">
+              <h1 class="text-center">ToDo List App</h1>
+            </div>
+            <div class="card-body">
+                <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="w-100">
+                  <div class="input-group mb-3">
+                    <input placeholder="Task name..." 
+                    type="text"
+                    id="name"
+                    class="form-control"
+                    name="name"
+                    ngModel
+                    required>
+                    <button class="btn btn-outline-primary" type="submit" id="button-addon2">Add Task</button>
+                  </div>
+                </form>
+                <div class="card mb-3">
+                  <h6 class="text-primary ms-2 mt-2">ToDo list</h6>
+                    <ul class="list-group list-group-flush">
+                      <div  *ngFor="let task of tasks; let i = index">
+                        <app-task-item  *ngIf="notCompleted(task)" [task]="task" [index]="i" class="w-100"></app-task-item>
+                      </div>
+                    </ul>
+                </div>
+                <div class="card">
+                  <ul class="list-group list-group-flush">
+                    <h6 class="text-success ms-2 mt-2">Completed tasks</h6>
+                    <div  *ngFor="let task of tasks; let i = index">
+                      <app-task-item  *ngIf="!notCompleted(task)" [task]="task" [index]="i" class="w-100"></app-task-item>
+                    </div>                    
+                  </ul>
+                </div>
+            </div>
+          </div>
+    </div>
+</div>
